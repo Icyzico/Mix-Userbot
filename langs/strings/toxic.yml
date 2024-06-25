@@ -238,6 +238,7 @@ gcs_13: "{} **Daftar blacklistnya kosong nyet!!**"
 gcs_14: "{} **Done jing, semua grup-grup bajingan ilang dari blacklist!!**"
 gcs_15: "{} **Hasil Gikes nya mek :\n{} Masuk di `{}` Grup.\n{} Ketangkis di `{}` Grup.**"
 gcs_16: "{} **Hasil Gukes nya mek :\n{} Masuk di `{}` Grup.\n{} Ketangkis di `{}` Grup.**"
+gcs_17: "{} **FloodWait Jink! lama nunggunya `{}`!\n\n{} Terkirim ke : `{}` grup.\n{}Gagal ke : `{}` grup**"
 
 # alive 
 alv_1: "**Author**"
