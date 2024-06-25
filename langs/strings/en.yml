@@ -217,6 +217,7 @@ gcs_13: "{} **The blacklist list is empty!!**"
 gcs_14: "{} **All blacklist lists have been successfully deleted.**"
 gcs_15: "{} **Group Broadcast Result :\n{} Succeeded in `{}` Group.\n{} Failed in `{}` Group.**"
 gcs_16: "{} **User Broadcast Result :\n{} Succeeded in `{}` Group.\n{} Failed in `{}` Group.**"
+gcs_17: "{} **It's a long time to waiting FloodWait `{}` seconds!\n\n{} Successfully send to: `{}` groups.\n{} Failed send to: `{}` groups.**"
 
 # alive 
 alv_1: "**Author**"
