@@ -78,7 +78,7 @@ async def _(c: nlx, m):
     failed = 0
     send = c.get_m(m)
     if not send:
-        msg = await m.reply(cgr("gcs_1").format(em.gagal))
+        await m.reply(cgr("gcs_1").format(em.gagal))
         return
     blacklist = udB.get_chat(c.me.id)
     chats = await digikes_("gikes")
@@ -103,7 +103,9 @@ async def _(c: nlx, m):
                 tunggu = e.value
                 if tunggu > 120:
                     failed += 1
-                    return await pros.edit("gcs_17").format(em.warn, tunggu, em.sukses, done, em.gagal, failed)
+                    return await pros.edit("gcs_17").format(
+                        em.warn, tunggu, em.sukses, done, em.gagal, failed
+                    )
                 await asyncio.sleep(tunggu)
                 try:
                     if m.reply_to_message:
@@ -115,7 +117,9 @@ async def _(c: nlx, m):
                     failed += 1
             except MessageNotModified:
                 continue
-    return await pros.edit(cgr("gcs_15").format(em.warn, em.sukses, done, em.gagal, failed))
+    return await pros.edit(
+        cgr("gcs_15").format(em.warn, em.sukses, done, em.gagal, failed)
+    )
 
 
 @ky.ubot("gucast", sudo=True)
