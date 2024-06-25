@@ -82,7 +82,7 @@ async def _(c: nlx, m):
         return
     blacklist = udB.get_chat(c.me.id)
     chats = await digikes_("gikes")
-    msg = None
+    pros = await m.reply(cgr("proses").format(em.proses))
     for chat in chats:
         if chat not in blacklist and chat not in NO_GCAST:
             try:
@@ -91,41 +91,19 @@ async def _(c: nlx, m):
                 else:
                     await c.send_message(chat, send)
                 done += 1
-                updated_content = cgr("gcs_2").format(
-                    em.proses, em.sukses, done, em.gagal, failed
-                )
-                if msg is None:
-                    msg = await m.reply(updated_content)
-                else:
-                    await msg.edit(updated_content)
-                await asyncio.sleep(0.3)
             except SlowmodeWait:
                 failed += 1
-                updated_content = cgr("gcs_2").format(
-                    em.proses, em.sukses, done, em.gagal, failed
-                )
-                continue
             except ChatWriteForbidden:
                 failed += 1
-                # await c.leave_chat(chat)
-                # await c.send_message(m.chat.id, f"Males gue di mute di {chat}")
-                updated_content = cgr("gcs_2").format(
-                    em.proses, em.sukses, done, em.gagal, failed
-                )
                 continue
             except Exception:
                 failed += 1
-                updated_content = cgr("gcs_2").format(
-                    em.proses, em.sukses, done, em.gagal, failed
-                )
-                if msg is None:
-                    msg = await m.reply(updated_content)
-                else:
-                    await msg.edit(updated_content)
-                await asyncio.sleep(0.3)
                 continue
             except FloodWait as e:
                 tunggu = e.value
+                if tunggu > 120:
+                    failed += 1
+                    return await pros.edit("gcs_17").format(em.warn, tunggu, em.sukses, done, em.gagal, failed)
                 await asyncio.sleep(tunggu)
                 try:
                     if m.reply_to_message:
@@ -133,30 +111,11 @@ async def _(c: nlx, m):
                     else:
                         await c.send_message(chat, send)
                     done += 1
-                    updated_content = cgr("gcs_2").format(
-                        em.proses, em.sukses, done, em.gagal, failed
-                    )
-                    if msg is None:
-                        msg = await m.reply(updated_content)
-                    else:
-                        await msg.edit(updated_content)
-                    await asyncio.sleep(0.3)
                 except Exception:
                     failed += 1
-                    updated_content = cgr("gcs_2").format(
-                        em.proses, em.sukses, done, em.gagal, failed
-                    )
-                    if msg is None:
-                        msg = await m.reply(updated_content)
-                    else:
-                        await msg.edit(updated_content)
             except MessageNotModified:
                 continue
-    updated_content = cgr("gcs_15").format(em.alive, em.sukses, done, em.gagal, failed)
-    if msg is None:
-        msg = await m.reply(updated_content)
-    else:
-        await msg.edit(updated_content)
+    return await pros.edit(cgr("gcs_15").format(em.warn, em.sukses, done, em.gagal, failed))
 
 
 @ky.ubot("gucast", sudo=True)
