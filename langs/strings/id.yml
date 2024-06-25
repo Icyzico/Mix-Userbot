@@ -236,8 +236,9 @@ gcs_11: "**• `{}` | `{}`**\n"
 gcs_12: "**• `{}`**\n"
 gcs_13: "{} **Daftar blacklist kosong!!**"
 gcs_14: "{} **Semua daftar hitam telah berhasil dihapus.**"
-gcs_15: "{} **Hasil Broadcast Grup :\n{} Berhasil di `{}` Grup.\n{} Gagal di `{}` Grup.**"
-gcs_16: "{} **Hasil Broadcast Pengguna :\n{} Berhasil di `{}` Grup.\n{} Gagal di `{}` Grup.**"
+gcs_15: "{} **Berhasil Broadcast Grup :\n{} Sukses di `{}` Grup.\n{} Gagal di `{}` Grup.**"
+gcs_16: "{} **Berhasil Broadcast Pengguna :\n{} Sukses di `{}` Grup.\n{} Gagal di `{}` Grup.**"
+gcs_17: "{} **Proses Broadcast dihentikan karna waktu tunggu terlalu lama `{}` detik.!\n\n{}Berhasil Terkirim ke : `{}` grup.\n{}Gagal Terkirim ke : `{}` grup**"
 
 # alive 
 alv_1: "**Author**"
