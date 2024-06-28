@@ -49,3 +49,4 @@ aiogram
 assemblyai
 removebg
 numpy==1.21.4
+pyav
