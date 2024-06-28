@@ -4,7 +4,7 @@ RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
         wget \
         git \
-        yasm \
+        ffmpeg \
         build-essential \
         pkg-config \
         neofetch \
