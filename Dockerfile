@@ -2,7 +2,6 @@ FROM python:3.9
 
 RUN apt-get update -y && \
     apt-get install -y --no-install-recommends \
-        ffmpeg \
         neofetch \
         apt-utils \
         libmediainfo0v5 \
@@ -14,9 +13,22 @@ RUN apt-get update -y && \
         libswscale-dev \
         libswresample-dev \
         build-essential \
-        pkg-config && \
+        pkg-config \
+        wget \
+        yasm \
+        libx264-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
+
+RUN mkdir -p /ffmpeg && cd /ffmpeg && \
+    wget https://ffmpeg.org/releases/ffmpeg-4.6.2.tar.bz2 && \
+    tar -xjf ffmpeg-4.6.2.tar.bz2 && \
+    cd ffmpeg-4.6.2 && \
+    ./configure --enable-gpl --enable-libx264 && \
+    make && \
+    make install && \
+    cd / && \
+    rm -rf /ffmpeg
 
 COPY . /app/
 WORKDIR /app/
