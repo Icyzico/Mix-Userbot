@@ -16,7 +16,7 @@ RUN apt-get update -y && apt-get upgrade -y && \
 
 RUN git clone --branch release/7.0 https://github.com/FFmpeg/FFmpeg.git /ffmpeg && \
     cd /ffmpeg && \
-    ./configure --enable-gpl --enable-libx264 --enable-libx265 --enable-libvpx --enable-libfdk-aac --enable-libmp3lame --enable-libopus && \
+    ./configure --enable-gpl --enable-libx264 --enable-libx265 --enable-libvpx --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-nonfree && \
     make && \
     make install && \
     ldconfig && \
