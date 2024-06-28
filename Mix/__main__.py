@@ -35,8 +35,15 @@ async def start_bot():
         sys.exit(1)
     except AccessTokenInvalid as e:
         print(f"Error : {e}")
-        ndB.del_key("BOT_TOKEN")
-        sys.exit(1)
+        try:
+            print("mencoba lagi dalam 3 detik.")
+            await asyncio.sleep(3)
+            await bot.start()
+        except Exception as e:
+            print(f"Error saat mencoba ulang start asisstant : {e}")
+            sys.exit(1)
+        # ndB.del_key("BOT_TOKEN")
+        # sys.exit(1)
     except AccessTokenExpired:
         print("Error : {e}")
         ndB.del_key("BOT_TOKEN")
