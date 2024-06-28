@@ -1,4 +1,4 @@
-FROM python:3.8
+FROM python:3.9
 
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
@@ -9,7 +9,14 @@ RUN apt-get update -y && apt-get upgrade -y && \
         pkg-config \
         neofetch \
         apt-utils \
-        libmediainfo0v5 && \
+        libmediainfo0v5 \
+        libavformat-dev \
+        libavcodec-dev \
+        libavdevice-dev \
+        libavutil-dev \
+        libavfilter-dev \
+        libswscale-dev \
+        libswresample-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
