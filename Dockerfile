@@ -12,7 +12,6 @@ RUN apt-get update -y && apt-get upgrade -y && \
         libx264-dev \
         libx265-dev \
         libvpx-dev \
-        libfdk-aac-dev \
         libmp3lame-dev \
         libopus-dev \
         libavformat-dev \
