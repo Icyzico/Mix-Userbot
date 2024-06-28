@@ -10,7 +10,8 @@ RUN apt-get update -y && apt-get upgrade -y && \
         neofetch \
         apt-utils \
         libmediainfo0v5 \
-        libswresample-dev && \
+        libswresample-dev \
+        libfdk-aac-dev && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
