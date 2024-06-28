@@ -1,4 +1,4 @@
-FROM nikolaik/python-nodejs:python3.9-nodejs22
+FROM python:3
 
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
