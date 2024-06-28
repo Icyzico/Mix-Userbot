@@ -9,22 +9,9 @@ RUN apt-get update -y && apt-get upgrade -y && \
         pkg-config \
         neofetch \
         apt-utils \
-        libmediainfo0v5 \
-        libswresample-dev \
-        libfdk-aac-dev && \
+        libmediainfo0v5 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-RUN git clone --branch release/7.0 https://github.com/FFmpeg/FFmpeg.git /ffmpeg && \
-    cd /ffmpeg && \
-    ./configure --enable-gpl --enable-libx264 --enable-libx265 --enable-libvpx --enable-libfdk-aac --enable-libmp3lame --enable-libopus --enable-nonfree && \
-    make && \
-    make install && \
-    ldconfig && \
-    cd / && \
-    rm -rf /ffmpeg
-
-ENV PKG_CONFIG_PATH="/usr/local/lib/pkgconfig"
 
 COPY . /app/
 WORKDIR /app/
