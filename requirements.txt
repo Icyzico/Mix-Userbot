@@ -48,4 +48,3 @@ pyquery
 aiogram
 assemblyai
 removebg
-av
