@@ -12,7 +12,9 @@ RUN apt-get update -y && \
         libavutil-dev \
         libavfilter-dev \
         libswscale-dev \
-        libswresample-dev && \
+        libswresample-dev \
+        build-essential \
+        pkg-config && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
