@@ -336,9 +336,7 @@ async def _(client: nlx, message):
             f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
         )
 
-    m = play_vc.get(message.chat.id)
-    c = play_vc.get(client.me.id)
-    group_call = await get_group_call(c, m, "Terjadi kesalahan ...")
+    group_call = await get_group_call(client, message, "Terjadi kesalahan ...")
     if not group_call:
         return await message.reply(
             f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
