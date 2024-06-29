@@ -308,9 +308,7 @@ async def _(client: nlx, message):
     return
 
 
-ky.ubot("volume", sudo=True)
-
-
+@ky.ubot("volume", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -323,7 +321,7 @@ async def _(client: nlx, message):
             f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
         )
 
-    volume = int(message.command[1])
+    pol = int(message.command[1])
     group_call = play_vc.get((message.chat.id, client.me.id))
 
     if not group_call:
@@ -331,8 +329,8 @@ async def _(client: nlx, message):
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
 
-    await group_call.set_my_volume(volume)
-    return await message.reply(f"Volume berhasil diatur ke {volume}!")
+    await group_call.set_my_volume(pol)
+    return await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
 
 
 @ky.ubot("end", sudo=True)
