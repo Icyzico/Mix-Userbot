@@ -277,7 +277,7 @@ async def _(client: nlx, message):
     return
 
 
-@ky.ubot("rejoin", sudo=True)
+@ky.ubot("replay", sudo=True)
 async def reconnect(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -287,7 +287,7 @@ async def reconnect(client: nlx, message):
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
     await group_call.reconnect()
-    return await message.reply(f"{em.sukses} **Berhasil rejoin**.")
+    return await message.reply(f"{em.sukses} **Berhasil Replay.**")
 
 
 @ky.ubot("pause", sudo=True)
