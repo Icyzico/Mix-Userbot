@@ -348,7 +348,9 @@ async def _(client: nlx, message):
     try:
         await group_call.call.set_my_volume(message.command[1])
         await group_call.reconnect()
-        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{message.command[1]}%`")
+        return await message.reply(
+            f"{em.sukses} Volume berhasil diatur ke `{message.command[1]}%`"
+        )
     except BaseException as e:
         return await message.reply(cgr("err").format(em.gagal, e))
 
