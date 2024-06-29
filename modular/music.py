@@ -336,10 +336,7 @@ async def _(client: nlx, message):
     try:
         await client.invoke(
             EditGroupCallParticipant(
-                call=group_call,
-                participant=InputPeerSelf(),
-                muted=False,
-                volume=nihpol
+                call=group_call, participant=InputPeerSelf(), muted=False, volume=nihpol
             )
         )
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
