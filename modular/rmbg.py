@@ -15,11 +15,7 @@ from removebg import RemoveBg
 from Mix import *
 
 __modles__ = "RemoveBg"
-__help__ = """
-Removal Background
-• Perintah: `{0}rmbg` [balas ke foto/gambar] atau `{0}rmbg` [tautan yang menuju ke sebuah gambar]
-• Penjelasan: Untuk menghapus latar belakang foto tersebut.
-"""
+__help__ = get_cgr("help_rbg")
 
 
 async def rem_bg(image_path):
