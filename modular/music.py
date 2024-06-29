@@ -21,6 +21,7 @@ __modles__ = "Music"
 __help__ = get_cgr("help_mus")
 
 gbr = "https://telegra.ph//file/b2a9611753657547acf15.jpg"
+group_call = None
 
 
 @ky.ubot("play", sudo=True)
@@ -322,10 +323,7 @@ async def _(client: nlx, message):
         os.remove(group_call.input_filename)
     group_call.stop_playout()
     try:
-        from .vcs import JoinVC
-
-        dios = JoinVC(message.chat.id)
-        await dios.group_call.leave()
+        group_call.stop()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
