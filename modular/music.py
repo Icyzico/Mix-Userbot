@@ -311,7 +311,7 @@ async def _(client: nlx, message):
 from pyrogram.raw.functions.phone import EditGroupCallParticipant
 from pyrogram.raw.types import InputPeerSelf
 
-from .vcs import get_group_call
+# from .vcs import get_group_call
 
 
 @ky.ubot("volume", sudo=True)
@@ -328,7 +328,8 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
+    # group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
+    group_call = play_vc.get((message.chat.id, client.me.id))
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
