@@ -328,6 +328,5 @@ async def _(client: nlx, message):
         await bocah.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
-        pass
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
     del play_vc[(message.chat.id, client.me.id)]
