@@ -326,7 +326,7 @@ async def _(client: nlx, message):
     try:
         bocah = group_call = GroupCallFactory(
             client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
-        )
+        ).get_group_call()
         bocah.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
