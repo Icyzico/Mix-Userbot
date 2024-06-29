@@ -74,8 +74,6 @@ async def digikes_(q):
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
-    done = 0
-    failed = 0
     send = c.get_m(m)
     if not send:
         await m.reply(cgr("gcs_1").format(em.gagal))
@@ -83,6 +81,8 @@ async def _(c: nlx, m):
     blacklist = udB.get_chat(c.me.id)
     chats = await digikes_("gikes")
     pros = await m.reply(cgr("proses").format(em.proses))
+    done = 0
+    failed = 0
     for chat in chats:
         if chat in blacklist:
             continue
