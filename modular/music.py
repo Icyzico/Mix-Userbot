@@ -329,7 +329,7 @@ async def _(client: nlx, message):
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
     try:
-        group_call.set_my_volume(pol)
+        await group_call.set_my_volume(pol)
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
     except Exception as evol:
         print(f"Error saat mengubah volume: {evol}")
