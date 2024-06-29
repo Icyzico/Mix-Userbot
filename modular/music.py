@@ -348,22 +348,9 @@ async def _(client: nlx, message):
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
     nihpol = int(polum)
-    """
-    try:
-        await client.invoke(
-            EditGroupCallParticipant(
-                call=group_call, participant=InputPeerSelf(), muted=False, volume=nihpol
-            )
-        )
-    """
     await group_call.set_my_volume(pol)
-        try:
-            await group_call.reconnect()
-            return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
-        except Exception as e:
-            print(f"Error ubah set volume; {e}")
-    except Exception as e:
-        return await message.reply(cgr("err").format(em.gagal, e))
+    await group_call.reconnect()
+    return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
 
 
 @ky.ubot("end", sudo=True)
