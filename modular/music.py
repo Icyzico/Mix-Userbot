@@ -309,15 +309,23 @@ async def _(client: nlx, message):
 
 
 ky.ubot("volume", sudo=True)
+
+
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
-    if len(message.command) < 2 or not message.command[1].isdigit() or not (1 <= int(message.command[1]) <= 200):
-        return await message.reply(f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!")
+    if (
+        len(message.command) < 2
+        or not message.command[1].isdigit()
+        or not (1 <= int(message.command[1]) <= 200)
+    ):
+        return await message.reply(
+            f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
+        )
 
     volume = int(message.command[1])
     group_call = play_vc.get((message.chat.id, client.me.id))
-    
+
     if not group_call:
         return await message.reply(f"{em.gagal} **Ga lagi memutar musik Goblok!!**")
     if not group_call.is_connected:
