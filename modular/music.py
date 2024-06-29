@@ -309,6 +309,7 @@ async def _(client: nlx, message):
 
 
 from pyrogram.raw.base import InputPeer
+from pyrogram.raw.types import InputPeerSelf
 from pyrogram.raw.functions.phone import EditGroupCallParticipant
 
 from .vcs import get_group_call
@@ -326,17 +327,18 @@ async def _(client: nlx, message):
         return await message.reply(
             f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
         )
-
+    
+    makspol = 200
     pol = int(message.command[1])
     group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
-    user_id = await client.resolve_peer(nlx.me.id)
+    nihpol = int(polum)
     try:
         await client.invoke(
             EditGroupCallParticipant(
-                call=group_call, participant=InputPeer(user_id), volume=polum
+                call=group_call, participant=InputPeerSelf(), muted=False, volume=nihpol, video_stoped=False, video_paused=False
             )
         )
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
