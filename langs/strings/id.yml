@@ -652,6 +652,7 @@ negar_15: "📌 **Zona waktu:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_tot: " **Truth or Dare**\n\n• Perintah: `{0}truth` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan pertanyaan jujur kepada pengguna yang pesannya dibalas.\n\n• Perintah: `{0}dare` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan tantangan kepada pengguna yang pesannya dibalas."
 help_rbg: " **Removal Background**\n\n• Perintah: `{0}rmbg` [balas ke foto/gambar] atau `{0}rmbg` [tautan yang menuju ke sebuah gambar]\n• Penjelasan: Untuk menghapus latar belakang foto tersebut."
 help_morse: " **Morse**\n\n• Perintah: `{0}emorse` [teks/balas pesan teks]\n• Penjelasan: Untuk meng-encode teks menjadi sandi morse.\n\n• Perintah: `{0}dmorse` [teks/balas pesan teks]\n• Penjelasan: Untuk men-decode sandi morse.\n"
 help_c: " **Kalkulator**\n\n• Perintah: `{0}calc` atau `{0}kalku`\n• Penjelasan: Sebuah Kalkulator Mix-Userbot.\n\n[Developer](t.me/DiemGausahBawel).\n"
