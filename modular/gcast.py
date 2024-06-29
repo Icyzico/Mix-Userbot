@@ -84,39 +84,36 @@ async def _(c: nlx, m):
     chats = await digikes_("gikes")
     pros = await m.reply(cgr("proses").format(em.proses))
     for chat in chats:
-        if chat not in blacklist and chat not in NO_GCAST:
+        if chat in blacklist:
+            continue
+        elif chat in NO_GCAST:
+            continue
+        try:
+            if m.reply_to_message:
+                await send.copy(chat)
+            else:
+                await c.send_message(chat, send)
+            await asyncio.sleep(0.2)
+            done += 1
+        except FloodWait as e:
+            tunggu = e.value
+            if tunggu > 120:
+                failed += 1
+                return await pros.edit("gcs_17").format(
+                    em.warn, tunggu, em.sukses, done, em.gagal, failed
+                )
+            await asyncio.sleep(tunggu)
             try:
                 if m.reply_to_message:
                     await send.copy(chat)
                 else:
                     await c.send_message(chat, send)
+                await asyncio.sleep(0.2)
                 done += 1
-            except SlowmodeWait:
-                failed += 1
-            except ChatWriteForbidden:
-                failed += 1
-                continue
             except Exception:
                 failed += 1
-                continue
-            except FloodWait as e:
-                tunggu = e.value
-                if tunggu > 120:
-                    failed += 1
-                    return await pros.edit("gcs_17").format(
-                        em.warn, tunggu, em.sukses, done, em.gagal, failed
-                    )
-                await asyncio.sleep(tunggu)
-                try:
-                    if m.reply_to_message:
-                        await send.copy(chat)
-                    else:
-                        await c.send_message(chat, send)
-                    done += 1
-                except Exception:
-                    failed += 1
-            except MessageNotModified:
-                continue
+        except Exception:
+            continue
     return await pros.edit(
         cgr("gcs_15").format(em.warn, em.sukses, done, em.gagal, failed)
     )
