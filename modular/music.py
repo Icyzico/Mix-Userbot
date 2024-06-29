@@ -278,7 +278,7 @@ async def _(client: nlx, message):
 
 
 @ky.ubot("rejoin", sudo=True)
-async def reconnect(*_):
+async def reconnect(client: nlx, message):
     em = Emojik()
     em.initialize()
     group_call = play_vc.get((message.chat.id, client.me.id))
