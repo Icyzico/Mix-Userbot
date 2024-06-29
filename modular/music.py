@@ -342,6 +342,7 @@ async def _(client: nlx, message):
     group_call = GroupCallFactory(
         client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
     ).get_file_group_call()
+    print(f"{group_call}")
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
