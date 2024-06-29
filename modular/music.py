@@ -324,6 +324,9 @@ async def _(client: nlx, message):
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
     del play_vc[(message.chat.id, client.me.id)]
     try:
-        group_call.leave()
+        bocah = group_call = GroupCallFactory(
+            client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
+        )
+        bocah.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
