@@ -3,13 +3,8 @@ import random
 from Mix import *
 
 __modles__ = "TruthOrDare"
-__help__ = """
-Truth or Dare
-• Perintah: `{0}truth` [balas pesan pengguna]
-• Penjelasan: Untuk memberikan pertanyaan jujur kepada pengguna yang pesannya dibalas.
-• Perintah: `{0}dare` [balas pesan pengguna]
-• Penjelasan: Untuk memberikan tantangan kepada pengguna yang pesannya dibalas.
-"""
+__help__ = get_cgr("help_tot")
+
 
 truth_questions = [
     "Apa kebohongan terbesar yang pernah kamu katakan?",
