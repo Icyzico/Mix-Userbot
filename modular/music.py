@@ -308,7 +308,8 @@ async def _(client: nlx, message):
     return
 
 
-from pyrogram.raw.functions.phone import EditGroupCallParticipant as EGCP
+from .vcs import get_group_call
+from pyrogram.raw.functions.phone import EditGroupCallParticipant
 from pyrogram.raw.types import InputGroupCall, InputPeerSelf
 
 
@@ -326,27 +327,22 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    chat_id = message.chat.id
-    group_call = await client.get_group_call(chat_id)
-
+    group_call = await get_group_call(c, m, err_msg=", Kesalahan...")
     if not group_call:
-        return await message.reply(f"{em.gagal} **Ga lagi memutar musik Goblok!!**")
-    if not group_call.is_connected:
-        return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
-    try:
-        await client.send(
-            EGCP(
-                call=InputGroupCall(
-                    id=group_call.id, access_hash=group_call.access_hash
-                ),
-                participant=InputPeerSelf(),
-                volume=pol,
-            )
+        return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
+    max_volume = 200
+    polum = int(pol * 100)
+    await c.invoke(
+        EditGroupCallParticipant(
+            call=group_call,
+            participant=InputPeerSelf(),
+            volume=polum
         )
-        await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
-        return
-    except Exception as evol:
-        print(f"Error saat mengubah volume: {evol}")
+    )
+        
+        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+    except Exception as e:
+        return await message.reply(cgr("err").format(em.gagal, e))
 
 
 @ky.ubot("end", sudo=True)
