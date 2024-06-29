@@ -341,8 +341,8 @@ async def _(client: nlx, message):
         return await message.reply(
             f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
         )
-    if not group_call.is_connected:
-        return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
+    #if not group_call.is_connected:
+    #     return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
     try:
         await group_call.set_my_volume(message.command[1])
         await group_call.reconnect()
