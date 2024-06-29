@@ -652,6 +652,7 @@ negar_15: "📌 **Zona waktu:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_spites: " **SpeedTest**\n\n• Perintah: `{0}speedtest` atau `{0}speed`.\n"
 help_mimi: " **Memify**\n\n• Perintah: `{0}mmf` text [balas stiker]\n• Penjelasan: Untuk menambahkan teks ke stiker.\n\n• Optional:\n`{0}mmf teks atas; teks bawah`"
 help_mim: " **Meme**\n\n• Perintah: `{0}meme`\n• Penjelasan: Untuk generate random meme.\n"
 help_gugel: " **Google**\n\n• Perintah: `{0}google` [kata pencarian]\n• Penjelasan: Mencari tau tentang sesuatu dengan kata pencarian.\n"
