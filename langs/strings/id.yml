@@ -652,6 +652,7 @@ negar_15: "📌 **Zona waktu:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_mim: " **Meme**\n\n• Perintah: `{0}meme`\n• Penjelasan: Untuk generate random meme.\n"
 help_gugel: " **Google**\n\n• Perintah: `{0}google` [kata pencarian]\n• Penjelasan: Mencari tau tentang sesuatu dengan kata pencarian.\n"
 help_tot: " **Truth or Dare**\n\n• Perintah: `{0}truth` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan pertanyaan jujur kepada pengguna yang pesannya dibalas.\n\n• Perintah: `{0}dare` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan tantangan kepada pengguna yang pesannya dibalas."
 help_rbg: " **Removal Background**\n\n• Perintah: `{0}rmbg` [balas ke foto/gambar] atau `{0}rmbg` [tautan yang menuju ke sebuah gambar]\n• Penjelasan: Untuk menghapus latar belakang foto tersebut."
