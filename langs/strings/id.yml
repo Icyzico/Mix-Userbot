@@ -658,7 +658,7 @@ help_mimi: " **Memify**\n\n• Perintah: `{0}mmf` text [balas stiker]\n• Penje
 help_mim: " **Meme**\n\n• Perintah: `{0}meme`\n• Penjelasan: Untuk generate random meme.\n"
 help_gugel: " **Google**\n\n• Perintah: `{0}google` [kata pencarian]\n• Penjelasan: Mencari tau tentang sesuatu dengan kata pencarian.\n"
 help_tot: " **Truth or Dare**\n\n• Perintah: `{0}truth` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan pertanyaan jujur kepada pengguna yang pesannya dibalas.\n\n• Perintah: `{0}dare` [balas pesan pengguna]\n• Penjelasan: Untuk memberikan tantangan kepada pengguna yang pesannya dibalas."
-help_rbg: " **Removal Background**\n\n• Perintah: `{0}rmbg` [balas ke foto/gambar] atau `{0}rmbg` [tautan yang menuju ke sebuah gambar]\n• Penjelasan: Untuk menghapus latar belakang foto tersebut."
+help_rbg: " **Removal Background**\n\n• Perintah: `{0}rmbg` [balas media/tautan yang menuju ke sebuah gambar]\n• Penjelasan: Untuk menghapus latar belakang foto tersebut."
 help_morse: " **Morse**\n\n• Perintah: `{0}emorse` [teks/balas pesan teks]\n• Penjelasan: Untuk meng-encode teks menjadi sandi morse.\n\n• Perintah: `{0}dmorse` [teks/balas pesan teks]\n• Penjelasan: Untuk men-decode sandi morse.\n"
 help_c: " **Kalkulator**\n\n• Perintah: `{0}calc` atau `{0}kalku`\n• Penjelasan: Sebuah Kalkulator Mix-Userbot.\n\n[Developer](t.me/DiemGausahBawel).\n"
 help_spammer: " **Cek Spam**\n\n• Perintah: `{0}cekspam` [username|user_id|reply]\n• Penjelasan: Untuk memeriksa status akun pengguna CAS [ChatBot Anti Spam].\n\n• Perintah: `{0}checkspam` [on|off]\n\n• Penjelasan: Untuk membuat sebuah filter CAS [ChatbotAntiSpam] di dalam grup.\n"
