@@ -652,6 +652,7 @@ negar_15: "📌 **Timezone:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_spites: " **SpeedTest**\n\n• Command: `{0}speedtest` or `{0}speed`.\n"
 help_mimi: " **Memify**\n\n• Command: `{0}mmf` text [reply sticker]\n• Description: Add text to sticker.\n\n• Optional:\n`{0}mmf Text on Top; Text On Button`"
 help_mim: " **Meme**\n\n• Command: `{0}meme`\n• Description: For Generating random meme.\n"
 help_gugel: " **Google**\n\n• Command: `{0}google` [Query]\n• Description: Surfing or Browsing to find Something on Google.\n"
