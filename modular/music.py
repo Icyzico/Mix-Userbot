@@ -35,8 +35,8 @@ def init_client_and_delete_message(func):
         return await func(client, message)
 
     return wrapper
-    
-    
+
+
 @ky.ubot("play", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
@@ -322,8 +322,6 @@ async def _(client: nlx, message):
     return
 
 
-from pyrogram.raw.functions.phone import EditGroupCallParticipant
-from pyrogram.raw.types import InputPeerSelf
 
 # from .vcs import get_group_call
 
@@ -347,7 +345,7 @@ async def _(client: nlx, message):
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
-    nihpol = int(polum)
+    int(polum)
     await group_call.set_my_volume(pol)
     await group_call.reconnect()
     return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
