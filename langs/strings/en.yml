@@ -652,6 +652,7 @@ negar_15: "📌 **Timezone:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_gugel: " **Google**\n\n• Command: `{0}google` [Query]\n• Description: Surfing or Browsing to find Something on Google.\n"
 help_tot: " **Truth or Dare**\n\n• Command: `{0}truth` [reply to user message]\n• Description: To ask a truthful question to the user whose message is replied to.\n\n• Command: `{0}dare` [reply to user's message]\n• Description: To issue a challenge to the user whose message was replied to."
 help_rbg: " **Removal Background**\n\n• Command: `{0}rmbg` [reply to photo/image] or `{0}rmbg` [link to an image]\n• Description: To delete the background of the photo."
 help_morse: " **Morse**\n\n• Command: `{0}emorse` [text/reply text message]\n• Description: To encode text into morse code.\n\n• Command: ` {0}dmorse` [text/reply text message]\n• Description: To decode morse code.\n"
