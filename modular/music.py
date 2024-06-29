@@ -338,7 +338,7 @@ async def _(client: nlx, message):
 
     m = play_vc.get(message.chat.id)
     c = play_vc.get(client.me.id)
-    group_call = await get_group_call(c, m, err_msg: "Terjadi kesalahan ...")
+    group_call = await get_group_call(c, m, "Terjadi kesalahan ...")
     if not group_call:
         return await message.reply(
             f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
