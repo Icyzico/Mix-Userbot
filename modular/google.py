@@ -6,8 +6,8 @@ from pyrogram.types import Message
 
 from Mix import *
 
-__module__ = "Google"
-__help__ = "Google"
+__modles__ = "Google"
+__help__ = get_cgr("help_gugel")
 
 
 def google_search(query, limit=10):
