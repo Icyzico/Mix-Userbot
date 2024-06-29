@@ -339,9 +339,7 @@ async def _(client: nlx, message):
                 call=group_call,
                 participant=InputPeerSelf(),
                 muted=False,
-                volume=nihpol,
-                video_stopped=False,
-                video_paused=False,
+                volume=nihpol
             )
         )
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
