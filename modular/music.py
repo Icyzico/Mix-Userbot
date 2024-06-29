@@ -321,12 +321,13 @@ async def _(client: nlx, message):
     if os.path.exists(group_call.input_filename):
         os.remove(group_call.input_filename)
     group_call.stop_playout()
-    await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
-    del play_vc[(message.chat.id, client.me.id)]
     try:
-        bocah = group_call = GroupCallFactory(
+        bocah = GroupCallFactory(
             client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
         ).get_group_call()
         await bocah.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
+        pass
+    await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
+    del play_vc[(message.chat.id, client.me.id)]
