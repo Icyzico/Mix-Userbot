@@ -323,6 +323,7 @@ async def _(client: nlx, message):
     group_call.stop_playout()
     try:
         from .vcs import JoinVC
+
         bocah = JoinVC(message.chat.id)
         await bocah.group_call.leave()
     except Exception as e:
