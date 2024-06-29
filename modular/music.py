@@ -340,7 +340,7 @@ async def _(client: nlx, message):
                 participant=InputPeerSelf(),
                 muted=False,
                 volume=nihpol,
-                video_stoped=False,
+                video_stopped=False,
                 video_paused=False,
             )
         )
