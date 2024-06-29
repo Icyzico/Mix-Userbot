@@ -322,10 +322,9 @@ async def _(client: nlx, message):
         os.remove(group_call.input_filename)
     group_call.stop_playout()
     try:
-        from .vcs import JoinVC
-
-        bocah = JoinVC(message.chat.id)
-        await bocah.group_call.leave()
+        from .vcs import klen_, JoinVC
+        dios = JoinVC(message.chat.id)
+        await dios.group_call.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
