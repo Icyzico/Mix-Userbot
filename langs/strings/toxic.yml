@@ -652,6 +652,7 @@ negar_15: "📌 **Zona waktu:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_morse: " **Morse**\n\n• Perintah: `{0}emorse` [teks/balas pesan teks]\n• Penjelasan: Untuk meng-encode teks menjadi sandi morse.\n\n• Perintah: `{0}dmorse` [teks/balas pesan teks]\n• Penjelasan: Untuk men-decode sandi morse.\n"
 help_c: " **Calculator**\n\n• Command: `{0}calc` or `{0}kalku`\n• Description: The Calculator of Mix-Userbot.\n\n[Developer](t.me/DiemGausahBawel).\n"
 help_spammer: " **Cek Spam**\n\n• Perintah: `{0}cekspam [username|user_id|reply]\n• Penjelasan: Untuk memeriksa status akun pengguna CAS [ChatBot Anti Spam].\n\n• Perintah: `{0}checkspam [on|off]\n\n• Penjelasan: Untuk membuat sebuah filter CAS [ChatbotAntiSpam] di dalam grup.\n"
 help_negara: "  **Negara**\n\n• Perintah: `{0}negara` [mama negara]\n•Penjelasan: Cari tau tentang Negara."
