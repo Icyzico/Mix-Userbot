@@ -40,8 +40,7 @@ pytz
 pyyaml
 lyricsgenius==3.0.1
 SafoneApi
-# pytgcalls==3.0.0.dev24
-git+https://github.com/jonesroot/tgcalls.git@dev#egg=pytgcalls==3.0.0.dev24
+pytgcalls==3.0.0.dev24
 PySocks
 pexpect
 proxybroker
