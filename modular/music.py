@@ -308,9 +308,10 @@ async def _(client: nlx, message):
     return
 
 
-from .vcs import get_group_call
 from pyrogram.raw.functions.phone import EditGroupCallParticipant
-from pyrogram.raw.types import InputGroupCall, InputPeerSelf
+from pyrogram.raw.types import InputPeerSelf
+
+from .vcs import get_group_call
 
 
 @ky.ubot("volume", sudo=True)
@@ -330,17 +331,14 @@ async def _(client: nlx, message):
     group_call = await get_group_call(c, m, err_msg=", Kesalahan...")
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
-    max_volume = 200
     polum = int(pol * 100)
     try:
         await c.invoke(
             EditGroupCallParticipant(
-                call=group_call,
-                participant=InputPeerSelf(),
-                volume=polum
+                call=group_call, participant=InputPeerSelf(), volume=polum
             )
         )
-        
+
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
     except Exception as e:
         return await message.reply(cgr("err").format(em.gagal, e))
