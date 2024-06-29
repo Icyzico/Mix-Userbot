@@ -320,38 +320,6 @@ async def _(client: nlx, message):
     return
 
 
-
-
-@ky.ubot("volume", sudo=True)
-async def _(client: nlx, message):
-    em = Emojik()
-    em.initialize()
-    if (
-        len(message.command) < 2
-        or not message.command[1].isdigit()
-        or not (1 <= int(message.command[1]) <= 200)
-    ):
-        return await message.reply(
-            f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
-        )
-
-    suara = GroupCallFactory(client).get_file_group_call()
-    if not suara:
-        return await message.reply(
-            f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
-        )
-    # if not group_call.is_connected:
-    #     return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
-    try:
-        await suara.set_my_volume(message.command[1])
-        # await suara.reconnect()
-        return await message.reply(
-            f"{em.sukses} Volume berhasil diatur ke `{message.command[1]}%`"
-        )
-    except Exception as e:
-        return await message.reply(cgr("err").format(em.gagal, e))
-
-
 @ky.ubot("end", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
