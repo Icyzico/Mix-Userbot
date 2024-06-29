@@ -336,16 +336,16 @@ async def _(client: nlx, message):
             f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
         )
 
-    group_call = await get_group_call(client, message, "Terjadi kesalahan ...")
-    if not group_call:
+    suara = GroupCallFactory(client).get_file_group_call()
+    if not suara:
         return await message.reply(
             f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
         )
     # if not group_call.is_connected:
     #     return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
     try:
-        await group_call.set_my_volume(message.command[1])
-        await group_call.reconnect()
+        await suara.set_my_volume(message.command[1])
+        # await suara.reconnect()
         return await message.reply(
             f"{em.sukses} Volume berhasil diatur ke `{message.command[1]}%`"
         )
