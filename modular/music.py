@@ -320,7 +320,6 @@ async def _(client: nlx, message):
     return
 
 
-from .vcs import get_group_call
 
 
 @ky.ubot("volume", sudo=True)
