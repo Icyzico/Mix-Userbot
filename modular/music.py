@@ -322,7 +322,8 @@ async def _(client: nlx, message):
         os.remove(group_call.input_filename)
     group_call.stop_playout()
     try:
-        from .vcs import klen_, JoinVC
+        from .vcs import JoinVC
+
         dios = JoinVC(message.chat.id)
         await dios.group_call.leave()
     except Exception as e:
