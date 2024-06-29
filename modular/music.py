@@ -308,6 +308,10 @@ async def _(client: nlx, message):
     return
 
 
+from pyrogram.raw.functions.phone import EditGroupCallParticipant as EGCP
+from pyrogram.raw.types import InputGroupCall, InputPeerSelf
+
+
 @ky.ubot("volume", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
@@ -322,14 +326,21 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    group_call = play_vc.get((message.chat.id, client.me.id))
+    chat_id = message.chat.id
+    group_call = await client.get_group_call(chat_id)
 
     if not group_call:
         return await message.reply(f"{em.gagal} **Ga lagi memutar musik Goblok!!**")
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
     try:
-        await group_call.set_my_volume(pol)
+        await client.send(
+            EGCP(
+                call=InputGroupCall(id=group_call.id, access_hash=group_call.access_hash),
+                participant=InputPeerSelf(),
+                volume=pol
+            )
+        )
         await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
         return
     except Exception as evol:
