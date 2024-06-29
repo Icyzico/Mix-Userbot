@@ -8,7 +8,7 @@ from pyrogram.types import *
 from Mix import *
 
 __modules__ = "Cek Spam"
-__help__ = "Cek Spam"
+__help__ = get_cgr("help_spammer")
 
 
 filter_active = True
