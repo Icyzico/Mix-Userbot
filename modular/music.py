@@ -291,6 +291,12 @@ async def _(client: nlx, message):
     return
 
 
+@ky.ubot("rejoin", sudo=True)
+@init_client_and_delete_message
+async def reconnect(*_):
+    group_call.reconnect()
+    
+    
 @ky.ubot("pause", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
