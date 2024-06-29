@@ -110,6 +110,8 @@ async def _(client: nlx, message):
             return await pros.edit(cgr("err").format(em.gagal, e))
         group_call.add_handler(playout_ended_handler, GroupCallFileAction.PLAYOUT_ENDED)
         group_call.input_filename = raw_file_name
+        if os.path.exists(raw_file_name):
+            os.remove(raw_file_name)
         plere = """
 <u><b>🎼 Sekarang Diputar 🎶</b></u>
 
@@ -143,6 +145,8 @@ async def _(client: nlx, message):
         group_call.add_handler(playout_ended_handler, GroupCallFileAction.PLAYOUT_ENDED)
         group_call.input_filename = raw_file_name
         group_call.song_name = vid_title
+        if os.path.exists(raw_file_name):
+            os.remove(raw_file_name)
         plere = """
 <u><b>🎼 Sekarang Diputar 🎶</b></u>
 
@@ -323,7 +327,7 @@ async def _(client: nlx, message):
         os.remove(group_call.input_filename)
     group_call.stop_playout()
     try:
-        group_call.stop()
+        await group_call.stop()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
