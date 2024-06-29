@@ -320,7 +320,7 @@ async def _(client: nlx, message):
     return
 
 
-# from .vcs import get_group_call
+from .vcs import get_group_call
 
 
 @ky.ubot("volume", sudo=True)
@@ -336,10 +336,9 @@ async def _(client: nlx, message):
             f"{em.gagal} Kalo mau set volume masukin angka dari 1 - 200!"
         )
 
-    pol = int(message.command[1])
-    group_call = play_vc.get((message.chat.id, client.me.id))
-    stream_vc.get((message.chat.id, client.me.id))
-    print(f"{group_call}")
+    m = play_vc.get(message.chat.id)
+    c = play_vc.get(client.me.id)
+    group_call = await get_group_call(c, m, err_msg: "Terjadi kesalahan ...")
     if not group_call:
         return await message.reply(
             f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
