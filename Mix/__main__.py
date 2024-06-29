@@ -41,6 +41,7 @@ async def start_bot():
             await bot.start()
         except Exception as e:
             print(f"Error saat mencoba ulang start asisstant : {e}")
+            ndB.del_key("BOT_TOKEN")
             sys.exit(1)
         # ndB.del_key("BOT_TOKEN")
         # sys.exit(1)
