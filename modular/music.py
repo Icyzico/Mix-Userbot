@@ -333,7 +333,7 @@ async def _(client: nlx, message):
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
     try:
-        await c.invoke(
+        await client.invoke(
             EditGroupCallParticipant(
                 call=group_call, participant=InputPeerSelf(), volume=polum
             )
