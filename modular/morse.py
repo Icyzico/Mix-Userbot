@@ -14,15 +14,7 @@ import gtts
 from Mix import *
 
 __modles__ = "Morse"
-__help__ = """
- Morse
-
-• Perintah: `{0}emorse` [teks/balas pesan teks]
-• Penjelasan: Untuk meng-encode teks menjadi sandi morse.
-
-• Perintah: `{0}dmorse` [teks/balas pesan teks]
-• Penjelasan: Untuk men-decode sandi morse.
-"""
+__help__ = get_cgr("help_morse")
 
 
 MORSE_CODE_DICT = {
