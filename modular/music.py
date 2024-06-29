@@ -294,7 +294,7 @@ async def _(client: nlx, message):
 @ky.ubot("rejoin", sudo=True)
 @init_client_and_delete_message
 async def reconnect(*_):
-    group_call.reconnect()
+    await group_call.reconnect()
 
 
 @ky.ubot("pause", sudo=True)
@@ -345,17 +345,17 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    group_call = GroupCallFactory(
-        client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
-    ).get_file_group_call()
+    group_call = play_vc.get((message.chat.id, client.me.id))
+    s = stream_vc.get((message.chat.id, client.me.id))
     print(f"{group_call}")
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
-    polum = int(pol * 100)
-    int(polum)
-    await group_call.set_my_volume(pol)
-    await group_call.reconnect()
-    return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+    try:
+        await s.set_my_volume(pol)
+        await s.reconnect()
+        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+    except BaseException as e:
+        return await message.reply(cgr("err").format(em.gagal, e))
 
 
 @ky.ubot("end", sudo=True)
