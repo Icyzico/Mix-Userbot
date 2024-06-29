@@ -188,7 +188,7 @@ async def _(c, m):
 
 
 @ky.ubot("leaveallmute", sudo=True)
-async def _(c, m):
+async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
     xenn = await m.reply(cgr("proses").format(em.proses))
