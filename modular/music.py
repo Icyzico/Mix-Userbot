@@ -308,8 +308,8 @@ async def _(client: nlx, message):
     return
 
 
-from pyrogram.raw.functions.phone import EditGroupCallParticipant
 from pyrogram.raw.base import InputPeer
+from pyrogram.raw.functions.phone import EditGroupCallParticipant
 
 from .vcs import get_group_call
 
