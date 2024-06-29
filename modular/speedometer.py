@@ -10,7 +10,7 @@
 from Mix import *
 
 __modles__ = "SpeedTest"
-__help__ = "Speedometer"
+__help__ = get_cgr("help_spites")
 
 
 @ky.ubot("speedtest|speed", sudo=True)
