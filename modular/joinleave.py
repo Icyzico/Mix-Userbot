@@ -185,3 +185,35 @@ async def _(c, m):
         print(f"An error occurred while fetching dialogs: {e}")
 
     await xenn.edit_text(cgr("join_5").format(em.sukses, nan, em.gagal, luci))
+
+
+@ky.ubot("leaveallmute", sudo=True)
+async def _(c, m):
+    em = Emojik()
+    em.initialize()
+    xenn = await m.reply(cgr("proses").format(em.proses))
+    luci = 0
+    nan = 0
+    ceger = [-1002058863067, -1001986858575, -1001876092598, -1001812143750]
+    try:
+        async for dialog in c.get_dialogs():
+            if dialog.chat.type in (ChatType.GROUP, ChatType.SUPERGROUP):
+                chat = dialog.chat.id
+                try:
+                    chat_info = await c.get_chat_member(chat, "me")
+                    user_status = chat_info.status
+                    if chat not in ceger and user_status == ChatMemberStatus.RESTRICTED:
+                        nan += 1
+                        await c.leave_chat(chat)
+                except FloodWait as e:
+                    tunggu = int(e.value)
+                    await asyncio.sleep(tunggu)
+                    await c.leave_chat(chat)
+                    nan += 1
+                except Exception as ex:
+                    print(f"Failed to leave chat {chat}: {ex}")
+                    luci += 1
+    except Exception as e:
+        print(f"An error occurred while fetching dialogs: {e}")
+    await xenn.edit(cgr("join_8").format(em.sukses, nan, em.gagal, luci))
+    return
