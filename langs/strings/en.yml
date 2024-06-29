@@ -652,6 +652,7 @@ negar_15: "📌 **Timezone:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_rbg: " **Removal Background**\n\n• Command: `{0}rmbg` [reply to photo/image] or `{0}rmbg` [link to an image]\n• Description: To delete the background of the photo."
 help_morse: " **Morse**\n\n• Command: `{0}emorse` [text/reply text message]\n• Description: To encode text into morse code.\n\n• Command: ` {0}dmorse` [text/reply text message]\n• Description: To decode morse code.\n"
 help_c: " **Kalkulator**\n\n• Perintah: `{0}calc` atau `{0}kalku`\n• Penjelasan: Sebuah Kalkulator Mix-Userbot.\n\n[Developer](t.me/DiemGausahBawel).\n"
 help_spammer: " **Check Spam**\n\n• Command: `{0}checkspam` [username|user_id|reply]\n• Description: To check the status of the CAS [Anti Spam ChatBot] user account.\n\n• Command: `{0}checkspam` [on|off]\n\n• Description: To create a CAS [ChatbotAntiSpam] filter in the group.\n"
