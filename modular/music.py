@@ -340,8 +340,9 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    # group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
-    # group_call = play_vc.get((message.chat.id, client.me.id))
+    group_call = GroupCallFactory(
+            client, GroupCallFactory.MTPROTO_CLIENT_TYPE.PYROGRAM
+        ).get_file_group_call()
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
