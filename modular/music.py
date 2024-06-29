@@ -21,20 +21,6 @@ __modles__ = "Music"
 __help__ = get_cgr("help_mus")
 
 gbr = "https://telegra.ph//file/b2a9611753657547acf15.jpg"
-group_call = None
-
-
-def init_client_and_delete_message(func):
-    async def wrapper(client, message):
-        global group_call
-        if not group_call:
-            group_call = GroupCallFactory(client).get_file_group_call()
-
-        await message.delete()
-
-        return await func(client, message)
-
-    return wrapper
 
 
 @ky.ubot("play", sudo=True)
@@ -292,9 +278,16 @@ async def _(client: nlx, message):
 
 
 @ky.ubot("rejoin", sudo=True)
-@init_client_and_delete_message
 async def reconnect(*_):
+    em = Emojik()
+    em.initialize()
+    group_call = play_vc.get((message.chat.id, client.me.id))
+    if not group_call:
+        return await message.reply(f"{em.gagal} **Ga lagi memutar musik Goblok!!**")
+    if not group_call.is_connected:
+        return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
     await group_call.reconnect()
+    return await message.reply(f"{em.sukses} **Berhasil rejoin**.")
 
 
 @ky.ubot("pause", sudo=True)
@@ -349,10 +342,12 @@ async def _(client: nlx, message):
     s = stream_vc.get((message.chat.id, client.me.id))
     print(f"{group_call}")
     if not group_call:
-        return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
+        return await message.reply(f"{em.gagal} **Tidak ada panggilan grup yang valid.**")
+    if not group_call.is_connected:
+        return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
     try:
-        await s.set_my_volume(pol)
-        await s.reconnect()
+        await group_call.call.set_my_volume(pol)
+        await group_call.reconnect()
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
     except BaseException as e:
         return await message.reply(cgr("err").format(em.gagal, e))
