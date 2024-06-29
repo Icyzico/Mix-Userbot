@@ -339,10 +339,12 @@ async def _(client: nlx, message):
 
     pol = int(message.command[1])
     group_call = play_vc.get((message.chat.id, client.me.id))
-    s = stream_vc.get((message.chat.id, client.me.id))
+    stream_vc.get((message.chat.id, client.me.id))
     print(f"{group_call}")
     if not group_call:
-        return await message.reply(f"{em.gagal} **Tidak ada panggilan grup yang valid.**")
+        return await message.reply(
+            f"{em.gagal} **Tidak ada panggilan grup yang valid.**"
+        )
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} *Kaga lagi di os!!**")
     try:
