@@ -327,4 +327,3 @@ async def _(client: nlx, message):
         group_call.leave()
     except Exception as e:
         print(f"Error turun pass end music : {e}")
-        pass
