@@ -24,6 +24,19 @@ gbr = "https://telegra.ph//file/b2a9611753657547acf15.jpg"
 group_call = None
 
 
+def init_client_and_delete_message(func):
+    async def wrapper(client, message):
+        global group_call
+        if not group_call:
+            group_call = GroupCallFactory(client).get_file_group_call()
+
+        await message.delete()
+
+        return await func(client, message)
+
+    return wrapper
+    
+    
 @ky.ubot("play", sudo=True)
 async def _(client: nlx, message):
     em = Emojik()
@@ -293,6 +306,7 @@ async def _(client: nlx, message):
 
 
 @ky.ubot("resume", sudo=True)
+@init_client_and_delete_message
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -329,18 +343,25 @@ async def _(client: nlx, message):
 
     pol = int(message.command[1])
     # group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
-    group_call = play_vc.get((message.chat.id, client.me.id))
+    # group_call = play_vc.get((message.chat.id, client.me.id))
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
     nihpol = int(polum)
+    """
     try:
         await client.invoke(
             EditGroupCallParticipant(
                 call=group_call, participant=InputPeerSelf(), muted=False, volume=nihpol
             )
         )
-        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+    """
+    await group_call.set_my_volume(pol)
+        try:
+            await group_call.reconnect()
+            return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+        except Exception as e:
+            print(f"Error ubah set volume; {}")
     except Exception as e:
         return await message.reply(cgr("err").format(em.gagal, e))
 
