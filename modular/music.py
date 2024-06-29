@@ -328,7 +328,7 @@ async def _(client: nlx, message):
         )
 
     pol = int(message.command[1])
-    group_call = await get_group_call(c, m, err_msg=", Kesalahan...")
+    group_call = await get_group_call(client, message, err_msg=", Kesalahan...")
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
