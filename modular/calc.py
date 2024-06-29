@@ -12,7 +12,7 @@ from pyrogram.types import *
 from Mix import *
 
 __modles__ = "Calculator"
-__help__ = get_cgr("Calculator")
+__help__ = get_cgr("help_c")
 
 
 @ky.ubot("calc|kalku", sudo=True)
