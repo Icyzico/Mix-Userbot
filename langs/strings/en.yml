@@ -652,6 +652,7 @@ negar_15: "📌 **Timezone:-** `{}`\n"
 negar_16: "📌 **Top Level Domain:-** `{}`\n"
 
 # help_for
+help_c: " **Kalkulator**\n\n• Perintah: `{0}calc` atau `{0}kalku`\n• Penjelasan: Sebuah Kalkulator Mix-Userbot.\n\n[Developer](t.me/DiemGausahBawel).\n"
 help_spammer: " **Check Spam**\n\n• Command: `{0}checkspam` [username|user_id|reply]\n• Description: To check the status of the CAS [Anti Spam ChatBot] user account.\n\n• Command: `{0}checkspam` [on|off]\n\n• Description: To create a CAS [ChatbotAntiSpam] filter in the group.\n"
 help_negara: " **Country**\n\n• Command: `{0}country` [query]\n•Description: To find info about Country."
 help_mail: " **Mail**\n\n• Command: `{0}genmail`\n• Description: To get Google Temporary Email.\n\n• Command: `{0}getmail [email] [token]` \n • Description: To get incoming messages in Gmail Temp.\n\n•Command: `{0}tempmail`\n• Description: To get Temporary Random Email.\n\n• Command: `{0}gettemp` [email]\n• Description: To get messages contained in Temporary Random Email."
