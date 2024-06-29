@@ -336,9 +336,11 @@ async def _(client: nlx, message):
     try:
         await client.send(
             EGCP(
-                call=InputGroupCall(id=group_call.id, access_hash=group_call.access_hash),
+                call=InputGroupCall(
+                    id=group_call.id, access_hash=group_call.access_hash
+                ),
                 participant=InputPeerSelf(),
-                volume=pol
+                volume=pol,
             )
         )
         await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
