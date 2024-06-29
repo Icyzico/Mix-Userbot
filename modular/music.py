@@ -332,15 +332,16 @@ async def _(client: nlx, message):
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     max_volume = 200
     polum = int(pol * 100)
-    await c.invoke(
-        EditGroupCallParticipant(
-            call=group_call,
-            participant=InputPeerSelf(),
-            volume=polum
+    try:
+        await c.invoke(
+            EditGroupCallParticipant(
+                call=group_call,
+                participant=InputPeerSelf(),
+                volume=polum
+            )
         )
-    )
         
-        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
+        return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{polum}%`")
     except Exception as e:
         return await message.reply(cgr("err").format(em.gagal, e))
 
