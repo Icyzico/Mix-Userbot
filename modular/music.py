@@ -11,7 +11,7 @@ import random
 import string
 from asyncio import sleep
 
-from pytgcalls import GroupCallFactory, GroupCallFileAction
+from pytgcalls import GroupCallFactory, GroupCallFileAction, GroupCallBaseAction
 from youtubesearchpython import VideosSearch
 
 from Mix import Emojik, ReplyCheck, YoutubeDownload, cgr, get_cgr, ky, nlx
@@ -329,8 +329,10 @@ async def _(client: nlx, message):
     if not group_call.is_connected:
         return await message.reply(f"{em.gagal} **Ga lagi di obrolan suara Goblok!!**")
     try:
-        await edit_group_call(group_call).set_my_volume(pol)
-        return await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
+        async for m, c in await group_call:
+            await group_call.set_my_volume(c, pol)
+        await message.reply(f"{em.sukses} Volume berhasil diatur ke {pol}!")
+        return
     except Exception as evol:
         print(f"Error saat mengubah volume: {evol}")
 
