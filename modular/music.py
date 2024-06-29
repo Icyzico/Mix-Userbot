@@ -349,7 +349,7 @@ async def _(client: nlx, message):
         return await message.reply(
             f"{em.sukses} Volume berhasil diatur ke `{message.command[1]}%`"
         )
-    except BaseException as e:
+    except Exception as e:
         return await message.reply(cgr("err").format(em.gagal, e))
 
 
