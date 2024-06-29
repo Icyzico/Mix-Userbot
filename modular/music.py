@@ -309,7 +309,7 @@ async def _(client: nlx, message):
 
 
 from pyrogram.raw.functions.phone import EditGroupCallParticipant
-from pyrogram.raw.types import InputPeerSelf
+from pyrogram.raw.types import InputPeer
 
 from .vcs import get_group_call
 
@@ -332,13 +332,13 @@ async def _(client: nlx, message):
     if not group_call:
         return await message.reply(f"{em.gagal} Tidak ada panggilan grup yang valid.")
     polum = int(pol * 100)
+    user_id = await client.resolve_peer(nlx.me.id)
     try:
         await client.invoke(
             EditGroupCallParticipant(
-                call=group_call, participant=InputPeerSelf(), volume=polum
+                call=group_call, participant=InputPeer(user_id), volume=polum
             )
         )
-
         return await message.reply(f"{em.sukses} Volume berhasil diatur ke `{pol}%`")
     except Exception as e:
         return await message.reply(cgr("err").format(em.gagal, e))
