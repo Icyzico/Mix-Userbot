@@ -323,3 +323,8 @@ async def _(client: nlx, message):
     group_call.stop_playout()
     await message.reply(f"{em.sukses} **Pemutaran dihentikan.**")
     del play_vc[(message.chat.id, client.me.id)]
+    try:
+        group_call.leave()
+    except Exception as e:
+        print(f"Error turun pass end music : {e}")
+        pass
