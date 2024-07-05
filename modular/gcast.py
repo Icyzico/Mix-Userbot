@@ -85,11 +85,11 @@ async def _(c: nlx, m):
     failed = 0
     for chat in chats:
         if chat in blacklist:
-            continue
             failed += 1
+            continue
         elif chat in NO_GCAST:
-            continue
             failed += 1
+            continue
         try:
             if m.reply_to_message:
                 await send.copy(chat)
@@ -114,9 +114,10 @@ async def _(c: nlx, m):
                 done += 1
             except Exception:
                 failed += 1
+                continue
         except Exception:
-            continue
             failed += 1
+            continue
     return await pros.edit(
         cgr("gcs_15").format(em.warn, em.sukses, done, em.gagal, failed)
     )
