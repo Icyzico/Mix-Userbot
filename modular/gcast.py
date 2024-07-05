@@ -99,11 +99,6 @@ async def _(c: nlx, m):
             done += 1
         except FloodWait as e:
             tunggu = e.value
-            if tunggu > 120:
-                failed += 1
-                return await pros.edit("gcs_17").format(
-                    em.warn, tunggu, em.sukses, done, em.gagal, failed
-                )
             await asyncio.sleep(tunggu)
             try:
                 if m.reply_to_message:
