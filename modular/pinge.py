@@ -6,10 +6,11 @@
 """
 ################################################################
 from datetime import datetime
+from random import randint
 from time import time
 
 from pyrogram.raw.functions import Ping
-from random import randint
+
 from Mix import *
 from Mix.core.waktu import get_time, start_time
 
