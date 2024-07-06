@@ -44,7 +44,7 @@ def find_matching_anime(anime_name):
     return None
 
 
-@ky.ubot("streaming", sudo=True)
+@ky.ubot("streaming")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
