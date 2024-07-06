@@ -43,7 +43,9 @@ async def _(c: nlx, m):
 from datetime import datetime
 from random import randint
 from time import time
+
 from pyrogram.raw.functions import Ping
+
 from Mix import *
 from Mix.core.waktu import get_time, start_time
 
@@ -72,4 +74,3 @@ async def plongo(c: nlx, m):
 @ky.devs("mping")
 async def _(c: nlx, m):
     await plongo(c, m)
-
