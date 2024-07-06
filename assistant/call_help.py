@@ -275,6 +275,8 @@ async def _(c, cq):
         except FloodWait as e:
             await cq.answer(f"FloodWait {e}, Please Waiting!!", True)
             return
+        except:
+            pass
     if back_match:
         t3 = "<b>Commands\n      Prefixes: <code>{}</code>\n      Modules: <code>{}</code></b>".format(
             " ".join(prefix), len(CMD_HELP)
@@ -290,6 +292,8 @@ async def _(c, cq):
         except FloodWait as e:
             await cq.answer(f"FloodWait {e}, Please Waiting!!", True)
             return
+        except:
+            pass
 
 
 @ky.callback("^anim.")
