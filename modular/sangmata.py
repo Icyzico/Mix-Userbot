@@ -18,8 +18,8 @@ __modles__ = "SangMata"
 __help__ = get_cgr("help_sangmata")
 
 
-@ky.ubot("sg", sudo=True)
-@ky.devs("siapa")
+@ky.ubot("sg")
+@ky.devs("sapaya")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
