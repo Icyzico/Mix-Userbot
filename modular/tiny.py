@@ -17,14 +17,10 @@ from Mix import *
 from Mix.core.tools_media import *
 
 __modles__ = "Tiny"
-__help__ = """
- Tiny
-• Perintah: `{0}tiny` [balas stdocer]
-• Penjelasan: Untuk membuat sticker menjadi kecil.
-"""
+__help__ = get_cgr("help_tiny")
 
 
-@ky.ubot("tiny", sudo=True)
+@ky.ubot("tiny")
 async def memify(c: nlx, m):
     em = Emojik()
     em.initialize()
