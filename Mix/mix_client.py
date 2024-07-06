@@ -43,6 +43,7 @@ class Userbot(Client):
             device_model="Mix-Userbot",
             ipv6=False,
             proxy=self._configure_proxy(),
+            plugins=dict(root="modular")
             **kwargs,
         )
 
@@ -285,16 +286,6 @@ class Userbot(Client):
         else:
             self._prefix[self.me.id] = ["."]
         self._translate[self.me.id] = {"negara": "id"}
-        LOGGER.info(f"Importing User Modules...")
-        for modul in USER_MOD:
-            imported_module = importlib.import_module(f"modular." + modul)
-            if hasattr(imported_module, "__modles__") and imported_module.__modles__:
-                imported_module.__modles__ = imported_module.__modles__
-                if hasattr(imported_module, "__help__") and imported_module.__help__:
-                    CMD_HELP[imported_module.__modles__.replace(" ", "_").lower()] = (
-                        imported_module
-                    )
-        LOGGER.info(f"Successfully Import User Modules...")
         LOGGER.info(f"Starting Userbot {self.me.id}|{self.me.mention}")
 
 
