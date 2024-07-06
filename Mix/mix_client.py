@@ -21,8 +21,9 @@ from pyrogram.types import *
 from team.nandev.class_log import LOGGER
 from team.nandev.database import ndB, udB
 
+from assistant import BOT_PLUGINS
 from config import *
-
+from modular import USER_MOD
 TOKEN_BOT = ndB.get_key("BOT_TOKEN") or bot_token
 OWNER = ndB.get_key("OWNER_ID")
 
@@ -282,12 +283,7 @@ class Userbot(Client):
 class Bot(Client):
     def __init__(self, **kwargs):
         super().__init__(
-            name="bot",
-            api_id=api_id,
-            api_hash=api_hash,
-            bot_token=TOKEN_BOT,
-            **kwargs,
-            plugins=dict(root="assistant"),
+            name="bot", api_id=api_id, api_hash=api_hash, bot_token=TOKEN_BOT, **kwargs, plugins=dict(root="assistant"),
         )
 
     def on_message(self, filters=None, group=-1):
