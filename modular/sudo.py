@@ -47,7 +47,7 @@ async def _(c: nlx, m):
         user = await c.get_users(user_id)
     except Exception as error:
         return await msg.edit(error)
-    udB.get_list_from_var(c.me.id, "sudoers", "userid")
+    sudo_users = udB.get_list_from_var(c.me.id, "sudoers", "userid")
     usro = f"[{user.first_name} {user.last_name or ''}](tg://user?id={user.id})"
     if user.id not in sudo_users:
         return await msg.edit(cgr("sud_3").format(em.sukses, usro))
