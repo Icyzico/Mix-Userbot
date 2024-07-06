@@ -25,7 +25,7 @@ __help__ = get_cgr("help_stick")
 LOG_ME = ndB.get_key("TAG_LOG")
 
 
-@ky.ubot("gstik|getstiker|getsticker", sudo=True)
+@ky.ubot("gstik|getstiker|getsticker")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -59,7 +59,7 @@ async def _(c: nlx, m):
     os.remove(pat)
 
 
-@ky.ubot("unkang", sudo=False)
+@ky.ubot("unkang")
 async def _(self: nlx, m):
     em = Emojik()
     em.initialize()
@@ -83,7 +83,7 @@ async def _(self: nlx, m):
         await m.reply(cgr("st_6").format(em.gagal))
 
 
-@ky.ubot("kang", sudo=False)
+@ky.ubot("kang")
 async def _(self: nlx, m):
     em = Emojik()
     em.initialize()
