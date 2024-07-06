@@ -23,7 +23,7 @@ __help__ = get_cgr("help_mus")
 gbr = "https://telegra.ph//file/b2a9611753657547acf15.jpg"
 
 
-@ky.ubot("play", sudo=True)
+@ky.ubot("play")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -200,7 +200,7 @@ async def _(client: nlx, message):
         return
 
 
-@ky.ubot("skip", sudo=True)
+@ky.ubot("skip")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -251,7 +251,7 @@ async def _(client: nlx, message):
     return
 
 
-@ky.ubot("playlist", sudo=True)
+@ky.ubot("playlist")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -277,7 +277,7 @@ async def _(client: nlx, message):
     return
 
 
-@ky.ubot("replay", sudo=True)
+@ky.ubot("replay")
 async def reconnect(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -290,7 +290,7 @@ async def reconnect(client: nlx, message):
     return await message.reply(f"{em.sukses} **Berhasil Replay.**")
 
 
-@ky.ubot("pause", sudo=True)
+@ky.ubot("pause")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -304,7 +304,7 @@ async def _(client: nlx, message):
     return
 
 
-@ky.ubot("resume", sudo=True)
+@ky.ubot("resume")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
@@ -320,7 +320,7 @@ async def _(client: nlx, message):
     return
 
 
-@ky.ubot("end", sudo=True)
+@ky.ubot("end")
 async def _(client: nlx, message):
     em = Emojik()
     em.initialize()
