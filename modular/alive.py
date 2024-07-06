@@ -13,7 +13,7 @@ __modles__ = "Alive"
 __help__ = get_cgr("help_alive")
 
 
-@ky.ubot("alive", sudo=True)
+@ky.ubot("alive")
 async def _(c: nlx, m):
     try:
         x = await c.get_inline_bot_results(bot.me.username, "alive")
