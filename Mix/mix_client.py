@@ -53,13 +53,6 @@ class Userbot(Client):
 
         return proxy_config
 
-    def on_message(self, filters=None, group=-1):
-        def decorator(func):
-            self.add_handler(MessageHandler(func, filters), group)
-            return func
-
-        return decorator
-
     def set_prefix(self, user_id, prefix):
         self._prefix[user_id] = prefix
 
