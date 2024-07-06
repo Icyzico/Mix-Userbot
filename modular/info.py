@@ -226,7 +226,7 @@ async def chat_info(c: nlx, chat, already=False):
     return caption, photo_id
 
 
-@ky.ubot("info|whois", sudo=True)
+@ky.ubot("info|whois")
 async def _(c, m):
     em = Emojik()
     em.initialize()
@@ -273,7 +273,7 @@ async def _(c, m):
     return
 
 
-@ky.ubot("cinfo|chatinfo", sudo=True)
+@ky.ubot("cinfo|chatinfo")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -333,7 +333,7 @@ async def _(c: nlx, m):
     return
 
 
-@ky.ubot("userstats|me", sudo=True)
+@ky.ubot("userstats|me")
 @ky.devs("userstats")
 async def _(c, m):
     em = Emojik()
@@ -412,86 +412,7 @@ Saya mengalami masalah dengan chat ini:
     )
 
 
-"""
-@ky.ubot("me|userstats", sudo=True)
-@ky.devs("userstats")
-async def _(c, m):
-    em = Emojik()
-    em.initialize()
-    Nan = await m.reply_text(f"{em.proses} <code>Collecting stats...</code>")
-    start = datetime.now()
-    zz = 0
-    nanki = 0
-    luci = 0
-    tgr = 0
-    ceger = 0
-    kntl = 0
-    benet = 0
-    dimari = set()
-    xenn = await c.get_me()
-
-    try:
-        async for dialog in c.get_dialogs():
-            try:
-                if dialog.chat.type == ChatType.PRIVATE:
-                    zz += 1
-                elif dialog.chat.type == ChatType.BOT:
-                    ceger += 1
-                elif dialog.chat.type == ChatType.GROUP:
-                    nanki += 1
-                elif dialog.chat.type == ChatType.SUPERGROUP:
-                    luci += 1
-                    user_s = await dialog.chat.get_member(int(xenn.id))
-                    if user_s.status in (
-                        ChatMemberStatus.OWNER,
-                        ChatMemberStatus.ADMINISTRATOR,
-                    ):
-                        kntl += 1
-                elif dialog.chat.type == ChatType.CHANNEL:
-                    tgr += 1
-            except ChannelPrivate:
-                benet += 1
-                dimari.add(dialog.chat.id)
-                await c.leave_chat(dialog.chat.id)
-                print(f"Left chat: {dialog.chat.id}")
-                continue
-    except ChannelPrivate:
-        benet += 1
-        dimari.add(dialog.chat.id)
-
-    end = datetime.now()
-    ms = (end - start).seconds
-
-    if not dimari:
-        dimari = None
-
-    await Nan.edit_text(
-**succesful extract your data in `{}` seconds
-`{}` Private Messages.
-`{}` Groups.
-`{}` Super Groups.
-`{}` Channels.
-`{}` Admin in Chats.
-`{}` Bots.
-`{}` Group With Trouble
-
-I've trouble with this chat : 
-- `{}`**.format(
-            ms,
-            zz,
-            nanki,
-            luci,
-            tgr,
-            kntl,
-            ceger,
-            benet,
-            dimari,
-        )
-    )
-"""
-
-
-@ky.ubot("staff", sudo=True)
+@ky.ubot("staff")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
