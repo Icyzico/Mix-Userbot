@@ -19,28 +19,6 @@ __modles__ = "Broadcast"
 __help__ = get_cgr("help_gcast")
 
 
-"""
-async def digikes_(q):
-    chats = []
-    chat_types = {
-        "gikes": [ChatType.GROUP, ChatType.SUPERGROUP],
-        "gucast": [ChatType.PRIVATE],
-    }
-    try:
-        async for dialog in nlx.get_dialogs():
-            try:
-                if dialog.chat.type in chat_types[q]:
-                    chats.append(dialog.chat.id)
-            except Exception as e:
-                LOGGER.error(f"An error occurred while processing dialog: {e}")
-    except ChannelPrivate:
-        LOGGER.error(f"Banned di {dialog.chat.id}")
-    except Exception as e:
-        LOGGER.error(f"An error occurred while getting dialogs: {e}")
-
-    return chats
-"""
-
 
 async def digikes_(q):
     chats = []
