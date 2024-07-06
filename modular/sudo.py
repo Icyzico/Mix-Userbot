@@ -53,7 +53,7 @@ async def _(c: nlx, m):
         return await msg.edit(cgr("sud_3").format(em.sukses, usro))
     try:
       udB.remove_from_var(c.me.id, "sudoers", user.id, "userid")
-          return await msg.edit(cgr("sud_4").format(em.sukses, usro))
+      return await msg.edit(cgr("sud_4").format(em.sukses, usro))
     except Exception as error:
         return await msg.edit(cgr("err").format(em.gagal, error))
 
