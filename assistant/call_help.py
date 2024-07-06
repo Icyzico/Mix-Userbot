@@ -257,6 +257,8 @@ async def _(c, cq):
         except FloodWait as e:
             await cq.answer(f"FloodWait {e}, Please Waiting!!", True)
             return
+        except:
+            pass
     if next_match:
         t2 = "<b>Commands\n      Prefixes: <code>{}</code>\n      Modules: <code>{}</code></b>".format(
             " ".join(prefix), len(CMD_HELP)
