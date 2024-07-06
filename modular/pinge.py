@@ -17,7 +17,7 @@ __modles__ = "Ping"
 __help__ = get_cgr("help_ping")
 
 
-@ky.ubot("ping", sudo=True)
+@ky.ubot("ping")
 @ky.devs("mping")
 async def _(c: nlx, m):
     em = Emojik()
@@ -25,7 +25,7 @@ async def _(c: nlx, m):
     start = datetime.now()
     await c.invoke(Ping(ping_id=0))
     end = datetime.now()
-    delta_ping = round((end - start).microseconds / 10000, 1)
+    delta_ping = round((end - start).microseconds / 1000, 1)
     upnya = await get_time((time() - start_time))
     _ping = cgr("ping_1").format(
         em.ping, str(delta_ping).replace(".", ","), em.pong, upnya
