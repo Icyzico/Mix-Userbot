@@ -6,67 +6,15 @@
 #
 # All rights reserved.
 
-# from countryinfo import CountryInfo
 
 import requests
-
+from io import BytesIO
+import requests
+from pytz import timezone
 from Mix import *
 
 __modles__ = "Country"
 __help__ = get_cgr("help_negara")
-
-
-"""
-def get_colok(kontol):
-    url = f"https://restcountries.com/v3.1/name/{kontol}"
-    try:
-        response = requests.get(url, timeout=60)
-        if response.status_code == 200:
-            data = response.json()
-            if data:
-                info = {
-                    "name": data[0]["name"]["common"],
-                    "alt_spellings": ", ".join(data[0]["altSpellings"]),
-                    "area": data[0]["area"],
-                    "borders": (
-                        ", ".join(data[0]["borders"])
-                        if "borders" in data[0]
-                        else "Tidak ada perbatasan"
-                    ),
-                    "calling_code": "+".join(
-                        data[0]["idd"]["root"] + suffix
-                        for suffix in data[0]["idd"]["suffixes"]
-                    ),
-                    "capital": ", ".join(data[0]["capital"]),
-                    "currencies": (
-                        ", ".join(data[0]["currencies"].keys())
-                        if "currencies" in data[0]
-                        else "Tidak ada mata uang"
-                    ),
-                    "flag": data[0]["flags"]["png"],
-                    "demonym": data[0]["demonyms"]["eng"]["m"],
-                    "iso": data[0]["cca2"],
-                    "languages": ", ".join(data[0]["languages"].values()),
-                    "population": data[0]["population"],
-                    "region": data[0]["region"],
-                    "subregion": data[0]["subregion"],
-                    "timezones": ", ".join(data[0]["timezones"]),
-                    "top_level_domain": ", ".join(data[0]["tld"]),
-                }
-                return info
-    except requests.exceptions.Timeout:
-        return None
-    except requests.exceptions.RequestException:
-        return None
-
-    return None
-"""
-
-
-from io import BytesIO
-
-import requests
-from pytz import timezone
 
 
 def parse_country_data(country_data):
@@ -137,7 +85,7 @@ def kontri(kont):
     return None
 
 
-@ky.ubot("negara|country", sudo=True)
+@ky.ubot("negara|country")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
