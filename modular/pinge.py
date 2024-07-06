@@ -23,7 +23,7 @@ async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
     start = datetime.now()
-    ping_id = int(time.time() * 1000)
+    ping_id = int(time() * 1000)
     await c.invoke(Ping(ping_id=ping_id))
     end = datetime.now()
     delta_ping = round((end - start).microseconds / 1000, 1)
