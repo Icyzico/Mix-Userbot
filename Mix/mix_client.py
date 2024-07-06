@@ -18,6 +18,7 @@ from pyrogram.enums import *
 from pyrogram.errors import *
 from pyrogram.handlers import *
 from pyrogram.types import *
+from team.nandev.class_modules import CMD_HELP
 from team.nandev.class_log import LOGGER
 from team.nandev.database import ndB, udB
 
