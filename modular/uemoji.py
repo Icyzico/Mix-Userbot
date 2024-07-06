@@ -14,7 +14,7 @@ __modles__ = "Emoji"
 __help__ = get_cgr("help_emo")
 
 
-@ky.ubot("setemo", sudo=True)
+@ky.ubot("setemo")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -49,35 +49,7 @@ async def _(c: nlx, m):
         return
 
 
-"""
-@ky.ubot("setemo", sudo=True)
-async def _(c: nlx, m):
-    em = Emojik()
-    em.initialize()
-    xx = await m.edit(cgr("proses").format(em.proses))
-    emoji = m.reply_to_message
-    prem = c.me.is_premium
-    if prem == True:
-        if emoji.entities:
-            for entity in emoji.entities:
-                if entity.custom_emoji_id:
-                    emoji_id = entity.custom_emoji_id
-                    break
-            if emoji_id:
-                await c.set_emoji_status(EmojiStatus(custom_emoji_id=emoji_id))
-                await xx.edit(cgr("em_25").format(em.sukses, emoji_id))
-                return
-
-    elif prem == False:
-        await xx.edit(cgr("em_2").format(em.gagal))
-        return
-    else:
-        await xx.edit(cgr("em_3").format(em.gagal))
-        return
-"""
-
-
-@ky.ubot("emoid", sudo=True)
+@ky.ubot("emoid")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -94,7 +66,7 @@ async def _(c: nlx, m):
                 return
 
 
-@ky.ubot("emoji", sudo=True)
+@ky.ubot("emoji")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
@@ -244,7 +216,7 @@ async def _(c: nlx, m):
         return
 
 
-@ky.ubot("getemo", sudo=True)
+@ky.ubot("getemo")
 async def _(c: nlx, m):
     em = Emojik()
     em.initialize()
