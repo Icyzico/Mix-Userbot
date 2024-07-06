@@ -14,7 +14,7 @@ __modles__ = "Memify"
 __help__ = get_cgr("help_mimi")
 
 
-@ky.ubot("mmf|memify", sudo=True)
+@ky.ubot("mmf|memify")
 async def memify(c: nlx, m):
     em = Emojik()
     em.initialize()
