@@ -60,7 +60,7 @@ async def _(c: nlx, m):
 
 @ky.ubot("sudolist")
 async def _(c: nlx, m):
-    em = Emojik(c)
+    em = Emojik()
     em.initialize()
     msg = ""
     sudoers = udB.get_list_from_var(c.me.id, "sudoers", "userid")
