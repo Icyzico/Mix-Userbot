@@ -422,7 +422,7 @@ async def _(c: nlx, m):
     co_founder = []
     admin = []
     bot = []
-    pros = await m.edit(cgr("proses").format(em.proses))
+    pros = await m.reply(cgr("proses").format(em.proses))
     if uname:
         chat_link = f"<a href='t.me/{uname}'>{chat.title}</a>"
     else:
