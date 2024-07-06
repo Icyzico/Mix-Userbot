@@ -294,8 +294,11 @@ async def _(c: nlx, m):
     em.initialize()
     jj = await m.reply_text(cgr("proses").format(em.proses))
     await jj.edit(cgr("reboot").format(em.sukses))
-    os.system("git pull")
-    os.execl(sys.executable, sys.executable, "-m", "Mix")
+    try:
+        os.system("git pull")
+        os.execl(sys.executable, sys.executable, "-m", "Mix")
+    except Exception as e:
+        return await jj.edit(cgr("err").format(em.gagal, e))
 
 
 async def reload_user():
