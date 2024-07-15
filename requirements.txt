@@ -1,5 +1,5 @@
 thegokil==1.0.0.dev1
-maling==2.4.9
+maling==2.5.0
 git+https://github.com/naya1503/mypyrogram
 aiofiles
 aiohttp
